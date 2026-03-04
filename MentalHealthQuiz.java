@@ -31,9 +31,9 @@ public class MentalHealthQuiz {
     };
 
     // Initialize scores for each mental health category
-    private static int stressScore = 0;
-    private static int anxietyScore = 0;
-    private static int depressionScore = 0;
+    public static int stressScore = 0;
+    public static int anxietyScore = 0;
+    public static int depressionScore = 0;
 
 
     // Prints the answer options for each question (each question has the same answer options: never, sometimes, often, almost always.)

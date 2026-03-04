@@ -4,9 +4,15 @@ public class ClearMind {
 
   // class variables
   static Scanner scanner = new Scanner(System.in);
-  static int lastStressScore = 0;
+  static int testCounter = 0; 
 
   public static void main(String[] args) {
+    // title
+    System.out.println("▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\n" +
+            "██ ▄▄▀█ ██ ▄▄█ ▄▄▀█ ▄▄▀████ ▄▀▄ ██▄██ ▄▄▀█ ▄▀██\n" +
+            "██ ████ ██ ▄▄█ ▀▀ █ ▀▀▄████ █ █ ██ ▄█ ██ █ █ ██\n" +
+            "██ ▀▀▄█▄▄█▄▄▄█▄██▄█▄█▄▄████ ███ █▄▄▄█▄██▄█▄▄███\n" +
+            "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀");
 
     // menu loop
     while (true) {
@@ -14,10 +20,14 @@ public class ClearMind {
       int choice = scanner.nextInt();
 
       switch(choice) {
-        case 1: MentalHealthQuiz.takeStressCheck(); break;
+        case 1:
+          MentalHealthQuiz.takeStressCheck();
+          testCounter++;
+          break;
         //case 2: dummyFunction(); break;
         //case 3: dummyFunction(); break;
-        //case 4: dummyFunction(); break;
+        case 4: checklastScores();
+          break;
         //case 5: dummyFunction(); break;
         case 6: 
           System.out.println("\nGoodbye.");
@@ -28,19 +38,24 @@ public class ClearMind {
   }
 
   public static void printMenu() {
-    System.out.println("▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\n" +
-            "██ ▄▄▀█ ██ ▄▄█ ▄▄▀█ ▄▄▀████ ▄▀▄ ██▄██ ▄▄▀█ ▄▀██\n" +
-            "██ ████ ██ ▄▄█ ▀▀ █ ▀▀▄████ █ █ ██ ▄█ ██ █ █ ██\n" +
-            "██ ▀▀▄█▄▄█▄▄▄█▄██▄█▄█▄▄████ ███ █▄▄▄█▄██▄█▄▄███\n" +
-            "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀\n");
-    System.out.println("================== Main Menu ==================");
+    System.out.println("\n================== Main Menu ==================\n");
     System.out.println("1. Take Mental Health Quiz");
     System.out.println("2. View Personalized Recommendations");
     System.out.println("3. Daily Affirmation, random from array.");
     System.out.println("4. View Activity Summary & Stress Score");
     System.out.println("5. Browse Support Resources");
-    System.out.println("6. Exit\n");
-    System.out.print("Enter your choice: ");
+    System.out.println("6. Exit");
+    System.out.print("\nEnter your choice: ");
   }
 
+  public static void checklastScores() {
+    if (testCounter == 0){
+      System.out.println("\nNo Quiz tests have been taken yet.");
+    }
+    else {
+    System.out.println("\nYou have taken "+ testCounter + " test(s) so far.\nThe last "+
+      "score:\nStress Score - " + MentalHealthQuiz.stressScore + "\nAnxiety Score - " + 
+      MentalHealthQuiz.anxietyScore + "\nDepression Score - "+ MentalHealthQuiz.anxietyScore);
+    }
+  }
 }
