@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import Affirmations.AffirmationGenerator;
 import java.util.Random;
 
 public class AffirmationGenerator {

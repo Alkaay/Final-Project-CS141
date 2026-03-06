@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class ClearMind {
 
   // class variables
@@ -7,44 +8,54 @@ public class ClearMind {
   static int testCounter = 0; 
 
   public static void main(String[] args) {
+    
     // title
     System.out.println("▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\n" +
-            "██ ▄▄▀█ ██ ▄▄█ ▄▄▀█ ▄▄▀████ ▄▀▄ ██▄██ ▄▄▀█ ▄▀██\n" +
-            "██ ████ ██ ▄▄█ ▀▀ █ ▀▀▄████ █ █ ██ ▄█ ██ █ █ ██\n" +
-            "██ ▀▀▄█▄▄█▄▄▄█▄██▄█▄█▄▄████ ███ █▄▄▄█▄██▄█▄▄███\n" +
-            "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀");
+                       "██ ▄▄▀█ ██ ▄▄█ ▄▄▀█ ▄▄▀████ ▄▀▄ ██▄██ ▄▄▀█ ▄▀██\n" +
+                       "██ ████ ██ ▄▄█ ▀▀ █ ▀▀▄████ █ █ ██ ▄█ ██ █ █ ██\n" +
+                       "██ ▀▀▄█▄▄█▄▄▄█▄██▄█▄█▄▄████ ███ █▄▄▄█▄██▄█▄▄███\n" +
+                       "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀");
 
+    // the menu cicle
     while (true) {
-        printMenu();
+      printMenu();
 
-        int choice = scanner.nextInt();
-        scanner.nextLine(); // consume leftover newline
+      int choice = scanner.nextInt();
+      scanner.nextLine(); // consume leftover newline
 
-        switch (choice) {
+      // functions switch
+      switch (choice) {
         case 1:
-            MentalHealthQuiz.takeStressCheck();
-            testCounter++;
-            break;
-            case 2:
-            Recommendations.showRecommendations(testCounter);
-            break;
-            case 3:
-                AffirmationGenerator.printAffirmation();
-                break;
-            case 4:
-                checklastScores();
-                break;
-            case 5:
-            	SupportResources.showResources(scanner);
-            	break;
-            case 6:
-                System.out.println("Goodbye.");
-                return;
-            default:
-                System.out.println("Invalid input. Please try again.");
+          // 1. Take Mental Health Quiz
+          MentalHealthQuiz.takeStressCheck();
+          testCounter++;
+          break;
+        case 2:
+          // 2. View Personalized Recommendations
+          Recommendations.showRecommendations(testCounter);
+          break;
+        case 3:
+          // 3. Daily Affirmation, random from array.
+          AffirmationGenerator.printAffirmation();
+          break;
+        case 4:
+          // 4. View Activity Summary & Stress Score
+          checklastScores();
+          break;
+        case 5:
+          // 5. Browse Support Resources
+          SupportResources.showResources(scanner);
+          break;
+        case 6:
+          // 6. Exit
+          System.out.println("Goodbye.");
+          return;
+        default:
+          System.out.println("Invalid input. Please try again.");
         }
     }
   }
+
   public static void printMenu() {
     System.out.println("\n================== Main Menu ==================\n");
     System.out.println("1. Take Mental Health Quiz");
@@ -61,7 +72,7 @@ public class ClearMind {
       System.out.println("\nNo Quiz tests have been taken yet.");
     }
     else {
-    System.out.println("\nYou have taken "+ testCounter + " test(s) so far.\nThe last "+
+    System.out.println("\nYou have taken "+ testCounter + " test(s) so far.\n\nThe last "+
       "score:\nStress Score - " + MentalHealthQuiz.stressScore + "\nAnxiety Score - " + 
       MentalHealthQuiz.anxietyScore + "\nDepression Score - "+ MentalHealthQuiz.anxietyScore);
     }
